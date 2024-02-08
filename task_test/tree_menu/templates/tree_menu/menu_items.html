@@ -1,0 +1,24 @@
+<div class="menu-container">
+    <ul class="menu">
+        {% for parent_item in menu_dict %}
+            {% for parent_key, parent_value in parent_item.items %}
+                <li>
+                    {% if selected_url and parent_key.url == selected_url %}
+                        <a href='{% url 'display_menu_item' menu_url=menu_url selected_url=parent_key.url selected_level=parent_key.level %}' class='selected'>
+                            {{ parent_key.title }}
+                        </a>
+                    {% else %}
+                        <a href='{% url 'display_menu_item' menu_url=menu_url selected_url=parent_key.url selected_level=parent_key.level %}'>
+                            {{ parent_key.title }}
+                        </a>
+                    {% endif %}
+                    {% if parent_value.children %}
+                        <ul>
+                            {% include 'tree_menu/menu_items.html' with menu_dict=parent_value.children %}
+                        </ul>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        {% endfor %}
+    </ul>
+</div>

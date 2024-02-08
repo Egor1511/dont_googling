@@ -1,0 +1,17 @@
+{% load menu_tag %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% include 'includes/head.html' %}
+    </head>
+    <body>
+        {% if menus %}
+            {% for menu in menus %}
+                {% draw_menu menu_url=menu.url %}
+            {% endfor %}
+        {% else %}
+            {% draw_menu menu_url=menu_url selected_url=selected_url selected_level=selected_level%}
+        {% endif %}
+    </body>
+</html>
+

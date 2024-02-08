@@ -1,0 +1,60 @@
+/* Общие стили для меню */
+.menu-container {
+    width: 100%;
+    background-color: #f8f9fa;
+}
+
+.menu-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.menu, .sub-menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu > li, .sub-menu > li {
+    position: relative;
+}
+
+.menu > li > a, .sub-menu > li > a {
+    display: block;
+    padding: 10px 20px;
+    color: #333;
+    text-decoration: none;
+}
+
+.menu > li:hover > a, .sub-menu > li:hover > a {
+    background-color: #e2e6ea;
+}
+
+.menu > li > a.selected, .sub-menu > li > a.selected {
+    color: #007bff;
+}
+
+/* Подменю */
+.menu > li:hover > ul {
+    display: block;
+}
+
+.sub-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 200px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: none;
+}
+
+.sub-menu > li > a {
+    padding: 10px 30px;
+}
+
+.sub-menu > li:hover > a {
+    background-color: #f8f9fa;
+}
